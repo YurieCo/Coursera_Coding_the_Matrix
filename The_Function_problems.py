@@ -20,8 +20,7 @@ def tuple_sum(A, B):
     >>> tuple_sum([(1,2), (10,20)],[(3,4), (30,40)])
     [(4, 6), (40, 60)]
     '''
-    temp = [x for x in zip(A,B)]
-    return [(temp[0][0][0] + temp[0][1][0], temp[0][0][1] + temp[0][1][1]), (temp[1][0][0] + temp[1][1][0], temp[1][0][1] + temp[1][1][1])]
+    return [(x[0]+y[0], x[1]+y[1]) for x,y in zip(A,B)]
 
 
 

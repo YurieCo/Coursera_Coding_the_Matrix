@@ -33,7 +33,7 @@ def my_lists(L):
     >>> my_lists([0,3])
     [[], [1, 2, 3]]
     '''
-    pass
+    return [list(range(1, x+1)) for x in L]
 
 
 
@@ -56,25 +56,18 @@ def myFunctionComposition(f, g):
       >>> myFunctionComposition(a,b) == {'x':'twentyfour','y':'twentyfive'}
       True
     '''
-    pass
+    return {fk:gv for (fk, fv) in f.items() for (gk, gv) in g.items() if fv == gk}
 
 
 
 ## 4: (Problem 4) Summing numbers in a list
 def mySum(L):
-    '''
-    Input:
-      a list L of numbers
-    Output:
-      sum of the numbers in L
-Be sure your procedure works for the empty list.
-    Examples:
-      >>> mySum([1,2,3,4])
-      10
-      >>> mySum([3,5,10])
-      18
-    '''
-    pass
+
+    current = 0
+    for x in L:
+        current += x
+
+    return current
 
 
 
@@ -92,7 +85,11 @@ Be sure your procedure works for the empty list.
       >>> myProduct([-3,2,4])
       -24
     '''
-    pass
+    current = 1
+    for x in L:
+        current *= x
+
+    return current
 
 
 
@@ -111,7 +108,12 @@ Hint: The value of the Python expression float('infinity') is infinity.
     >>> myMin([0,3,5,-2,-5])
     -5
     '''
-    pass
+    current = L[0]
+    for x in L:
+        if current > x:
+            current = x
+
+    return current
 
 
 
@@ -129,7 +131,11 @@ Be sure your procedure works for the empty list.
     >>> myConcat(['what','is','up'])
     'whatisup'
     '''
-    pass
+    current = ""
+    for x in L:
+        current += x
+
+    return current
 
 
 
@@ -147,17 +153,17 @@ Be sure your procedure works for the empty list.
     >>> myUnion([set(),{3,5},{3,5}])
     {3, 5}
     '''
-    pass
+    { x for y in L for x in y }
 
 
 
 ## 9: (Problem 9) Complex Addition Practice
 # Each answer should be a Python expression whose value is a complex number.
 
-complex_addition_a = ...
-complex_addition_b = ...
-complex_addition_c = ...
-complex_addition_d = ...
+complex_addition_a = (3 + 1j) + (2 + 2j)
+complex_addition_b = (-1 + 2j) + (1 - 1j)
+complex_addition_c = (2 + 0j) + (-3 + .001j)
+complex_addition_d = 4*(0 + 2j) + (.001 + 1j)
 
 
 
@@ -176,12 +182,12 @@ def transform(a, b, L):
     >>> transform(3,2,[1,2,3])
     [5, 8, 11]
     '''
-    pass
+    return [a*x+b for x in L]
 
 
 
 ## 11: (Problem 11) GF(2) Arithmetic
-GF2_sum_1 = ... # answer with 0 or 1
-GF2_sum_2 = ...
-GF2_sum_3 = ...
+GF2_sum_1 = 1
+GF2_sum_2 = 0
+GF2_sum_3 = 0
 
